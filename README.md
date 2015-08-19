@@ -3,3 +3,22 @@
 # mortein
 
 TODO: Actual README
+
+# Gradle Dependency
+
+Firstly, you need to add JitPack.io to your repositories list in the root projects build.gradle:
+
+```gradle
+repositories {
+    maven { url "https://jitpack.io" }
+}
+```
+
+Then, add the following to your module dependencies:
+
+```gradle
+dependencies {
+    compile 'com.kaneoriley.mortein:mortein-annotations:0.1'
+    debugCompile 'com.kaneoriley.mortein:mortein-runtime:0.1'
+}
+```
