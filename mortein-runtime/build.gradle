@@ -1,0 +1,66 @@
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+//noinspection GrUnresolvedAccess,GroovyAssignabilityCheck
+dependencies {
+    compile project(':mortein-annotations')
+    compile 'org.aspectj:aspectjrt:1.8.6'
+    compile 'javax.annotation:jsr250-api:1.0'
+    provided 'com.android.support:support-annotations:22.2.1'
+    provided 'org.slf4j:slf4j-api:1.7.12'
+    provided 'org.projectlombok:lombok:1.16.4'
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '23.0.0'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+android.libraryVariants.all { variant ->
+    JavaCompile javaCompile = variant.javaCompile
+    javaCompile.doLast {
+        String[] args = [
+                "-showWeaveInfo",
+                "-1.5",
+                "-inpath", javaCompile.destinationDir.toString(),
+                "-aspectpath", javaCompile.classpath.asPath,
+                "-d", javaCompile.destinationDir.toString(),
+                "-classpath", javaCompile.classpath.asPath,
+                "-bootclasspath", android.bootClasspath.join(File.pathSeparator)
+        ]
+
+        MessageHandler handler = new MessageHandler(true);
+        new Main().run(args, handler)
+
+        def log = project.logger
+        for (IMessage message : handler.getMessages(null, true)) {
+            switch (message.getKind()) {
+                case IMessage.ABORT:
+                case IMessage.ERROR:
+                case IMessage.FAIL:
+                    log.error message.message, message.thrown
+                    break;
+                case IMessage.WARNING:
+                case IMessage.INFO:
+                    log.info message.message, message.thrown
+                    break;
+                case IMessage.DEBUG:
+                    log.debug message.message, message.thrown
+                    break;
+            }
+        }
+    }
+}
