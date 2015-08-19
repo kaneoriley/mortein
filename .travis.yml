@@ -1,0 +1,16 @@
+language: android
+
+android:
+  components:
+    - build-tools-23.0.0
+    - android-23
+
+jdk:
+ - oraclejdk8
+
+branches:
+  except:
+    - gh-pages
+
+notifications:
+  email: false
