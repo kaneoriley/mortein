@@ -10,7 +10,7 @@ dependencies {
     compile project(':mortein-annotations')
     compile 'org.aspectj:aspectjrt:1.8.6'
     compile 'javax.annotation:jsr250-api:1.0'
-    provided 'com.android.support:support-annotations:23.0.0'
+    provided 'com.android.support:support-annotations:22.2.1'
     provided 'org.slf4j:slf4j-api:1.7.12'
     provided 'org.projectlombok:lombok:1.16.6'
 }
