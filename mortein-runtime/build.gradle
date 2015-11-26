@@ -5,19 +5,18 @@ import org.aspectj.tools.ajc.Main
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-//noinspection GrUnresolvedAccess,GroovyAssignabilityCheck
 dependencies {
     compile project(':mortein-annotations')
-    compile 'org.aspectj:aspectjrt:1.8.6'
+    compile 'org.aspectj:aspectjrt:1.8.7'
     compile 'javax.annotation:jsr250-api:1.0'
-    provided 'com.android.support:support-annotations:23.0.0'
-    provided 'org.slf4j:slf4j-api:1.7.12'
+    provided 'com.android.support:support-annotations:23.1.1'
+    provided 'org.slf4j:slf4j-api:1.7.13'
     provided 'org.projectlombok:lombok:1.16.6'
 }
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.0'
+    buildToolsVersion '23.0.2'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7

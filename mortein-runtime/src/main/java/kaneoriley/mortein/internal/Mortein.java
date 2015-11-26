@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 @SuppressWarnings("unused")
 @Accessors(prefix = "s")
 @Aspect
-public class Mortein {
+public final class Mortein {
 
     private static final String TAG = Mortein.class.getSimpleName();
 
@@ -94,7 +94,7 @@ public class Mortein {
     }
 
     private static void enterMethod(@NonNull JoinPoint joinPoint) {
-        if (!Mortein.isLoggingEnabled()) {
+        if (!sLoggingEnabled) {
             return;
         }
         CodeSignature codeSignature = (CodeSignature) joinPoint.getSignature();
@@ -133,7 +133,7 @@ public class Mortein {
                                    @Nullable Object result,
                                    long lengthMillis,
                                    long globalLengthMillis) {
-        if (!Mortein.isLoggingEnabled()) {
+        if (!sLoggingEnabled) {
             return;
         }
         Signature signature = joinPoint.getSignature();
@@ -177,13 +177,16 @@ public class Mortein {
      */
 
     @Pointcut("get(@kaneoriley.mortein.DebugBool(enabled=true) * *.*)")
-    public void boolField() {}
+    public void boolField() {
+    }
 
     @Pointcut("execution(@kaneoriley.mortein.DebugBool(enabled=true) * *(..))")
-    public void boolMethod() {}
+    public void boolMethod() {
+    }
 
     @Pointcut("boolField() || boolMethod()")
-    public void boolFieldOrMethod() {}
+    public void boolFieldOrMethod() {
+    }
 
     @Around("boolFieldOrMethod() && @annotation(debugBool)")
     public boolean replaceValue(@NonNull ProceedingJoinPoint joinPoint, @NonNull DebugBool debugBool) {
@@ -195,13 +198,16 @@ public class Mortein {
      */
 
     @Pointcut("get(@kaneoriley.mortein.DebugDouble(enabled=true) * *.*)")
-    public void doubleField() {}
+    public void doubleField() {
+    }
 
     @Pointcut("execution(@kaneoriley.mortein.DebugDouble(enabled=true) * *(..))")
-    public void doubleMethod() {}
+    public void doubleMethod() {
+    }
 
     @Pointcut("doubleField() || doubleMethod()")
-    public void doubleFieldOrMethod() {}
+    public void doubleFieldOrMethod() {
+    }
 
     @Around("doubleFieldOrMethod() && @annotation(debugDouble)")
     public double replaceValue(@NonNull ProceedingJoinPoint joinPoint, @NonNull DebugDouble debugDouble) {
@@ -213,13 +219,16 @@ public class Mortein {
      */
 
     @Pointcut("get(@kaneoriley.mortein.DebugFloat(enabled=true) * *.*)")
-    public void floatField() {}
+    public void floatField() {
+    }
 
     @Pointcut("execution(@kaneoriley.mortein.DebugFloat(enabled=true) * *(..))")
-    public void floatMethod() {}
+    public void floatMethod() {
+    }
 
     @Pointcut("floatField() || floatMethod()")
-    public void floatFieldOrMethod() {}
+    public void floatFieldOrMethod() {
+    }
 
     @Around("floatFieldOrMethod() && @annotation(debugFloat)")
     public float replaceValue(@NonNull ProceedingJoinPoint joinPoint, @NonNull DebugFloat debugFloat) {
@@ -231,13 +240,16 @@ public class Mortein {
      */
 
     @Pointcut("get(@kaneoriley.mortein.DebugInt(enabled=true) * *.*)")
-    public void intField() {}
+    public void intField() {
+    }
 
     @Pointcut("execution(@kaneoriley.mortein.DebugInt(enabled=true) * *(..))")
-    public void intMethod() {}
+    public void intMethod() {
+    }
 
     @Pointcut("intField() || intMethod()")
-    public void intFieldOrMethod() {}
+    public void intFieldOrMethod() {
+    }
 
     @Around("intFieldOrMethod() && @annotation(debugInt)")
     public int replaceValue(@NonNull ProceedingJoinPoint joinPoint, @NonNull DebugInt debugInt) {
@@ -249,13 +261,16 @@ public class Mortein {
      */
 
     @Pointcut("get(@kaneoriley.mortein.DebugLong(enabled=true) * *.*)")
-    public void longField() {}
+    public void longField() {
+    }
 
     @Pointcut("execution(@kaneoriley.mortein.DebugLong(enabled=true) * *(..))")
-    public void longMethod() {}
+    public void longMethod() {
+    }
 
     @Pointcut("longField() || longMethod()")
-    public void longFieldOrMethod() {}
+    public void longFieldOrMethod() {
+    }
 
     @Around("longFieldOrMethod() && @annotation(debugLong)")
     public long replaceValue(@NonNull ProceedingJoinPoint joinPoint, @NonNull DebugLong debugLong) {
@@ -267,13 +282,16 @@ public class Mortein {
      */
 
     @Pointcut("get(@kaneoriley.mortein.DebugString(enabled=true) * *.*)")
-    public void stringField() {}
+    public void stringField() {
+    }
 
     @Pointcut("execution(@kaneoriley.mortein.DebugString(enabled=true) * *(..))")
-    public void stringMethod() {}
+    public void stringMethod() {
+    }
 
     @Pointcut("stringField() || stringMethod()")
-    public void stringFieldOrMethod() {}
+    public void stringFieldOrMethod() {
+    }
 
     @Around("stringFieldOrMethod() && @annotation(debugString)")
     public String replaceValue(@NonNull ProceedingJoinPoint joinPoint, @NonNull DebugString debugString) {
