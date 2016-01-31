@@ -18,7 +18,7 @@ Then, add the following to your module dependencies:
 
 ```gradle
 dependencies {
-    compile 'com.kaneoriley.mortein:mortein-annotations:0.1'
-    debugCompile 'com.kaneoriley.mortein:mortein-runtime:0.1'
+    compile 'com.github.oriley-me.mortein:mortein-annotations:0.3'
+    debugCompile 'com.github.oriley-me.mortein:mortein-runtime:0.3'
 }
 ```

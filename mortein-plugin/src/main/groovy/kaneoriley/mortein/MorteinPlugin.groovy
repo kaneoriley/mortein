@@ -32,7 +32,7 @@ class MorteinPlugin implements Plugin<Project> {
         }
 
         project.dependencies {
-            compile 'org.aspectj:aspectjrt:1.8.7'
+            compile 'org.aspectj:aspectjrt:1.8.8'
         }
 
         project.afterEvaluate {
