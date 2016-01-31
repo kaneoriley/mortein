@@ -1,4 +1,4 @@
-package kaneoriley.mortein
+package me.oriley.mortein
 
 import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.LibraryPlugin

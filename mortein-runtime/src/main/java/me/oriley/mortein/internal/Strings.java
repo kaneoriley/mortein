@@ -1,4 +1,4 @@
-package kaneoriley.mortein.internal;
+package me.oriley.mortein.internal;
 
 import java.util.Arrays;
 import java.util.HashSet;

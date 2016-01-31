@@ -1,4 +1,4 @@
-package kaneoriley.mortein.internal;
+package me.oriley.mortein.internal;
 
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -17,12 +17,12 @@ import org.aspectj.lang.reflect.CodeSignature;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import kaneoriley.mortein.DebugBool;
-import kaneoriley.mortein.DebugDouble;
-import kaneoriley.mortein.DebugFloat;
-import kaneoriley.mortein.DebugInt;
-import kaneoriley.mortein.DebugLong;
-import kaneoriley.mortein.DebugString;
+import me.oriley.mortein.DebugBool;
+import me.oriley.mortein.DebugDouble;
+import me.oriley.mortein.DebugFloat;
+import me.oriley.mortein.DebugInt;
+import me.oriley.mortein.DebugLong;
+import me.oriley.mortein.DebugString;
 
 import java.util.concurrent.TimeUnit;
 
@@ -57,7 +57,7 @@ public final class Mortein {
      *  Logging
      */
 
-    @Pointcut("within(@kaneoriley.mortein.DebugLog(enabled=true) *)")
+    @Pointcut("within(@me.oriley.mortein.DebugLog(enabled=true) *)")
     public void withinAnnotatedClass() {
     }
 
@@ -69,11 +69,11 @@ public final class Mortein {
     public void constructorInsideAnnotatedType() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugLog(enabled=true) * *(..)) || methodInsideAnnotatedType()")
+    @Pointcut("execution(@me.oriley.mortein.DebugLog(enabled=true) * *(..)) || methodInsideAnnotatedType()")
     public void method() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugLog(enabled=true) *.new(..)) || constructorInsideAnnotatedType()")
+    @Pointcut("execution(@me.oriley.mortein.DebugLog(enabled=true) *.new(..)) || constructorInsideAnnotatedType()")
     public void constructor() {
     }
 
@@ -176,11 +176,11 @@ public final class Mortein {
      *  Boolean
      */
 
-    @Pointcut("get(@kaneoriley.mortein.DebugBool(enabled=true) * *.*)")
+    @Pointcut("get(@me.oriley.mortein.DebugBool(enabled=true) * *.*)")
     public void boolField() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugBool(enabled=true) * *(..))")
+    @Pointcut("execution(@me.oriley.mortein.DebugBool(enabled=true) * *(..))")
     public void boolMethod() {
     }
 
@@ -197,11 +197,11 @@ public final class Mortein {
      *  Double
      */
 
-    @Pointcut("get(@kaneoriley.mortein.DebugDouble(enabled=true) * *.*)")
+    @Pointcut("get(@me.oriley.mortein.DebugDouble(enabled=true) * *.*)")
     public void doubleField() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugDouble(enabled=true) * *(..))")
+    @Pointcut("execution(@me.oriley.mortein.DebugDouble(enabled=true) * *(..))")
     public void doubleMethod() {
     }
 
@@ -218,11 +218,11 @@ public final class Mortein {
      *  Float
      */
 
-    @Pointcut("get(@kaneoriley.mortein.DebugFloat(enabled=true) * *.*)")
+    @Pointcut("get(@me.oriley.mortein.DebugFloat(enabled=true) * *.*)")
     public void floatField() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugFloat(enabled=true) * *(..))")
+    @Pointcut("execution(@me.oriley.mortein.DebugFloat(enabled=true) * *(..))")
     public void floatMethod() {
     }
 
@@ -239,11 +239,11 @@ public final class Mortein {
      *  Integer
      */
 
-    @Pointcut("get(@kaneoriley.mortein.DebugInt(enabled=true) * *.*)")
+    @Pointcut("get(@me.oriley.mortein.DebugInt(enabled=true) * *.*)")
     public void intField() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugInt(enabled=true) * *(..))")
+    @Pointcut("execution(@me.oriley.mortein.DebugInt(enabled=true) * *(..))")
     public void intMethod() {
     }
 
@@ -260,11 +260,11 @@ public final class Mortein {
      *  Long
      */
 
-    @Pointcut("get(@kaneoriley.mortein.DebugLong(enabled=true) * *.*)")
+    @Pointcut("get(@me.oriley.mortein.DebugLong(enabled=true) * *.*)")
     public void longField() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugLong(enabled=true) * *(..))")
+    @Pointcut("execution(@me.oriley.mortein.DebugLong(enabled=true) * *(..))")
     public void longMethod() {
     }
 
@@ -281,11 +281,11 @@ public final class Mortein {
      *  String
      */
 
-    @Pointcut("get(@kaneoriley.mortein.DebugString(enabled=true) * *.*)")
+    @Pointcut("get(@me.oriley.mortein.DebugString(enabled=true) * *.*)")
     public void stringField() {
     }
 
-    @Pointcut("execution(@kaneoriley.mortein.DebugString(enabled=true) * *(..))")
+    @Pointcut("execution(@me.oriley.mortein.DebugString(enabled=true) * *(..))")
     public void stringMethod() {
     }
 

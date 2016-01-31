@@ -23,6 +23,6 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 
-    group = 'com.kaneoriley.mortein'
+    group = 'me.oriley.mortein'
     version = '1.0-SNAPSHOT'
 }
