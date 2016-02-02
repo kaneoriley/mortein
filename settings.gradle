@@ -1,3 +1,2 @@
 include ':mortein-annotations'
-include ':mortein-plugin'
 include ':mortein-runtime'
