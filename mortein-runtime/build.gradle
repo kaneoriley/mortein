@@ -8,7 +8,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 dependencies {
     compile project(':mortein-annotations')
     compile 'org.aspectj:aspectjrt:1.8.8'
-    compile 'javax.annotation:jsr250-api:1.0'
+    compile 'javax.annotation:javax.annotation-api:1.2'
     provided 'com.android.support:support-annotations:23.1.1'
     provided 'org.slf4j:slf4j-api:1.7.14'
     provided 'org.projectlombok:lombok:1.16.6'
